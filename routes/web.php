@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('employees', EmployeeController::class);
-    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])->name('user.logout');
 });
 
 Route::get('/meeting', [MeetingController::class, 'index'])->name('meeting.index');
