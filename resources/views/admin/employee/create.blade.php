@@ -11,10 +11,12 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name">
+                        <p></p>
                     </div>
                     <div class="mb-3">
                         <label for="department" class="form-label">Department</label>
                         <input type="text" class="form-control" id="department" name="department">
+                        <p></p>
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a href="{{route('employees.index')}}" class="btn btn-danger">Back</a>

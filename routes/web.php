@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
@@ -29,6 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('employees', EmployeeController::class);
+    Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
+
+Route::get('/meeting', [MeetingController::class, 'index'])->name('meeting.index');
+Route::get('/meeting/create', [MeetingController::class, 'create'])->name('meeting.create');
+Route::post('/meeting/store', [MeetingController::class, 'store'])->name('meeting.store');
 
 require __DIR__.'/auth.php';
