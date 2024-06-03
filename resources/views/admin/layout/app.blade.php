@@ -37,6 +37,7 @@
     </div>
 
     @include('admin.layout.js')
+    @yield('custom_js')
 </body>
 
 </html>
